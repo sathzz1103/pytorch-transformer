@@ -89,8 +89,13 @@ def run_validation(model, validation_ds, tokenizer_src, tokenizer_tgt, max_len, 
             expected.append(target_text)
             predicted.append(model_out_text)
 
+            # Print the source, target and model output
+            print_msg('-'*console_width)
+            print_msg(f"{f'Input text: ':>12}{source_text}")
+            print_msg(f"{f'Predicted: ':>12}{model_out_text}")
 
             if count == num_examples:
+                print_msg('-'*console_width)
                 break
     
     if writer:
